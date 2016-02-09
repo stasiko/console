@@ -10,13 +10,17 @@ namespace OOP_example
     {
         static void Main(string[] args)
         {
-
             CallOfKtulhu("test string");
 
+            var firstChar = $"First non repeatable symbol from string {"ababbacbafb"} is { GetFirstNonRepeatedChar("ababbacbafb")}.";
 
-            var test3 = GetFirstNonRepeatedChar("ababbacbafb");
-
+            Console.WriteLine(firstChar);
             var result = "success";
+
+#if DEBUG
+            Console.WriteLine("Press enter to close...");
+            Console.ReadLine();
+#endif
 
         }
 
@@ -24,17 +28,29 @@ namespace OOP_example
         public static void CallOfKtulhu(string message)
         {
             var test = new AbstractRealisation();
-            test.TestNormal("Call");
-            test.MyClassAbstract("Call");
-            test.ShowInfo();
+            test.MyClass("Call");
+            test.MyAbstractClass("Call");
+            test.MyVirtualClass();
 
-            var test2 = (AbstractTest) test;
-            test2.ShowInfo();
-            test2.TestNormal("Test of original abstract");
-            test2.TestNormal("Test of original public");
+            var test2 = (AbstractTest)test;
+            test2.MyClass("Call");
+            test2.MyAbstractClass("Call");
+            test2.MyVirtualClass();
 
+            //var test3 = new AbstractTest();
 
+            var person = new Person("Kot", 35);
 
+            var employee = new Employee();
+            employee.Age = person.Age;
+            employee.Name = person.Name;
+            employee.Position = "PM";
+            employee.Status = EmployeeStatus.FullTime;
+
+            person.GetInformation();
+            person.GetPersonInformation();
+            employee.GetInformation();
+            employee.GetPersonInformation();
         }
 
 

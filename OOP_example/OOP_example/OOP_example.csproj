@@ -43,20 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\AbstractExample.cs" />
-    <Compile Include="Core\Battery.cs" />
-    <Compile Include="Core\Inheritance.cs" />
-    <Compile Include="Core\MobileServiceFactory.cs" />
-    <Compile Include="Core\Nokia.cs" />
-    <Compile Include="Core\Samsumg.cs" />
-    <Compile Include="Core\IMobile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\AbstractTest.cs" />
     <Compile Include="Test\IntefraceTest.cs" />
+    <Compile Include="Test\Polymorph.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -9,35 +9,35 @@ namespace OOP_example.Test
 
     abstract class AbstractTest
     {
-        public void TestNormal(string message)
+        public void MyClass(string message)
         {
-            Console.WriteLine("Простой класс родителя!");
+            Console.WriteLine("Parent class.");
         }
 
-        public abstract void MyClassAbstract(string message);
+        public abstract void MyAbstractClass(string message);
 
-        public virtual void ShowInfo()
+        public virtual void MyVirtualClass()
         {
-            Console.WriteLine("Виртуальный класс родителя!");
+            Console.WriteLine("Parent virtual class");
         }
     }
 
     class AbstractRealisation : AbstractTest
     {
-        //public override void ShowInfo()
-        //{
-        //    base.ShowInfo();
-        //}
 
-        public override void MyClassAbstract(string message)
+        public override void MyAbstractClass(string message)
         {
-
-            Console.WriteLine("Abstract класс наследника!");
+            Console.WriteLine("Child abstract class.");
         }
 
-        public override void ShowInfo()
+        public override void MyVirtualClass()
         {
-            Console.WriteLine("Виртуальный класс наследника!");
+            Console.WriteLine("Child virtual class.");
+        }
+
+        public void MyClass(string message)
+        {
+            Console.WriteLine("Child class.");
         }
     }
 
