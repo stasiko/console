@@ -96,6 +96,11 @@ namespace OOP_example.Core
             throw new NotImplementedException();
         }
 
+        public void SendMessage()
+        {
+            throw new NotImplementedException();
+        }
+
         //New implementation for this method which was available in Mobile Class
         //This is runtime polymorphism
         //public override void SendMessage()
