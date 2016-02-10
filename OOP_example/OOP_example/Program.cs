@@ -17,6 +17,10 @@ namespace OOP_example
             Console.WriteLine(firstChar);
             var result = "success";
 
+
+            TypesConversion();
+
+
 #if DEBUG
             Console.WriteLine("Press enter to close...");
             Console.ReadLine();
@@ -36,6 +40,8 @@ namespace OOP_example
             test2.MyClass("Call");
             test2.MyAbstractClass("Call");
             test2.MyVirtualClass();
+
+
 
             //var test3 = new AbstractTest();
 
@@ -61,18 +67,76 @@ namespace OOP_example
 
         public static string GetFirstNonRepeatedChar(string str)
         {
-            string test5 = string.Empty;
-
             foreach (char c in str)
             {
-
-                //str.ToCharArray();
-                var result = str.Contains(c.ToString());
-
                 if ((str.LastIndexOf(c) - str.IndexOf(c)) == 0)
-                    return test5 = c.ToString();
+                    return c.ToString();
             }
-            return test5 = "none";
+            return "none";
+        }
+
+
+        public static void TypesConversion()
+        {
+
+            // Неявные implicit conversions
+
+            byte b = 23;
+            int i = b;
+            byte b2 = (byte) i;
+            Console.WriteLine(i);
+
+            int numVal = Int32.Parse("-105");
+            Console.WriteLine(numVal);
+
+            try
+            {
+                int m = Int32.Parse("abc");
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            string inputString = "abc";
+            int numValue;
+            bool parsed = Int32.TryParse(inputString, out numValue);
+
+            if (!parsed)
+                Console.WriteLine("Int32.TryParse could not parse '{0}' to an int.\n", inputString);
+
+
+            // Implicit conversion. num long can
+            // hold any value an int can hold, and more!
+            int num2 = 2147483647;
+            long bigNum = num2;
+
+            Digit dig = new Digit(7);
+            //This call invokes the implicit "double" operator
+            double num = dig;
+            //This call invokes the implicit "Digit" operator
+            Digit dig2 = 12;
+            Console.WriteLine("num = {0} dig2 = {1}", num, dig2.val);
+
+        }
+
+
+        class Digit
+        {
+            public Digit(double d) { val = d; }
+            public double val;
+            // ...other members
+
+            // User-defined conversion from Digit to double
+            public static implicit operator double(Digit d)
+            {
+                return d.val;
+            }
+            //  User-defined conversion from double to Digit
+            public static implicit operator Digit(double d)
+            {
+                return new Digit(d);
+            }
         }
 
     }

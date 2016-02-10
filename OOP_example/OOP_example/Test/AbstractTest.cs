@@ -35,16 +35,10 @@ namespace OOP_example.Test
             Console.WriteLine("Child virtual class.");
         }
 
-        public void MyClass(string message)
+        public new void MyClass(string message)
         {
             Console.WriteLine("Child class.");
         }
     }
-
-
-
-
-
-
 
 }
