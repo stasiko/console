@@ -22,6 +22,21 @@ namespace OOP_example.Test
         }
     }
 
+    abstract class AbstractTest2
+    {
+        public void MyClass2(string message)
+        {
+            Console.WriteLine("Parent class.");
+        }
+
+        public abstract void MyAbstractClass2(string message);
+        
+        public virtual void MyVirtualClass2()
+        {
+            Console.WriteLine("Parent virtual class");
+        }
+    }
+
     class AbstractRealisation : AbstractTest
     {
 

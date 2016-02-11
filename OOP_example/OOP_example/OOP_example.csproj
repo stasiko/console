@@ -43,8 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractFactory\DefaultGui.cs" />
+    <Compile Include="AbstractFactory\GUI.cs" />
+    <Compile Include="AbstractFactory\GUIFactoryGeneric.cs" />
+    <Compile Include="AbstractFactory\Interfaces.cs" />
+    <Compile Include="AbstractFactory\UserInput.cs" />
+    <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prototype\DynamiFabric.cs" />
+    <Compile Include="Prototype\PrototypeFabric.cs" />
+    <Compile Include="Prototype\SchemeElement.cs" />
     <Compile Include="Test\AbstractTest.cs" />
     <Compile Include="Test\BoxingUnboxing.cs" />
     <Compile Include="Test\IntefraceTest.cs" />
