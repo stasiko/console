@@ -85,7 +85,6 @@ namespace OOP_example
         {
             var dictionary = new Dictionary<char,int>();
 
-
             foreach (char c in str)
             {
                 if (dictionary.ContainsKey(c))
@@ -106,20 +105,6 @@ namespace OOP_example
                     return d.Key.ToString();
                 }
             }
-
-
-            //return "none";
-
-            //for (int i=0; i<str.Length;i++)
-            //{
-
-            //    if (dictionary.ContainsKey(st))
-
-            //    dictionary.Add(str[i], (int)str[i]);
-            //    dictionary.ContainsValue()
-            //}
-
-            //dictionary.
 
             return "none";
         }
