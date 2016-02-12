@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,11 @@ namespace OOP_example
 
             var firstChar = $"First non repeatable symbol from string {"ababbacbafb"} is { GetFirstNonRepeatedChar("ababbacbafb")}.";
 
+            var firstChar2 = $"222 First non repeatable symbol from string {"ababbacbafb"} is { GetFirstNonRepeatedChar2("ababbacbafb")}.";
+
             Console.WriteLine(firstChar);
+            Console.WriteLine(firstChar2);
+
             var result = "success";
 
 
@@ -69,9 +74,53 @@ namespace OOP_example
         {
             foreach (char c in str)
             {
+
                 if ((str.LastIndexOf(c) - str.IndexOf(c)) == 0)
                     return c.ToString();
             }
+            return "none";
+        }
+
+        public static string GetFirstNonRepeatedChar2(string str)
+        {
+            var dictionary = new Dictionary<char,int>();
+
+
+            foreach (char c in str)
+            {
+                if (dictionary.ContainsKey(c))
+                {
+                    dictionary[c] = dictionary[c] + 1;
+                }
+                else
+                {
+                    dictionary.Add(c, 1);
+                }
+            }
+
+
+            foreach (var d in dictionary)
+            {
+                if (d.Value == 1)
+                {
+                    return d.Key.ToString();
+                }
+            }
+
+
+            //return "none";
+
+            //for (int i=0; i<str.Length;i++)
+            //{
+
+            //    if (dictionary.ContainsKey(st))
+
+            //    dictionary.Add(str[i], (int)str[i]);
+            //    dictionary.ContainsValue()
+            //}
+
+            //dictionary.
+
             return "none";
         }
 
