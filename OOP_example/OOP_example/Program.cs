@@ -3,6 +3,7 @@ using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using OOP_example.Delegates;
 using OOP_example.Test;
 
 namespace OOP_example
@@ -26,10 +27,38 @@ namespace OOP_example
             TypesConversion();
 
 
+            Console.WriteLine("----- Testing Delegates ------");
+            DelegateTest.Test();
+
+            Console.WriteLine("----- Testing Events ------");
+            Events.TestEvents();
+
+            Console.WriteLine("----- Testing Events2 ------");
+
+            var publisher = new Publisher();
+
+            var testObj = new { Id = 1, Name = "1" };
+
+            //publisher.SampleEvent += new Publisher.SampleEventHandler(testObj, new SampleEventArgs("Goziraga"));
+
 #if DEBUG
             Console.WriteLine("Press enter to close...");
             Console.ReadLine();
 #endif
+
+        }
+
+
+        public static void EventExpample(string[] args)
+        {
+            ClassCounter counter = new ClassCounter();
+            Handler_One handlerOne = new Handler_One();
+            Handler_Two handlerTwo = new Handler_Two();
+
+            counter.OnCount += handlerOne.Message;
+            counter.OnCount += handlerTwo.Message;
+
+            counter.Count();
 
         }
 
@@ -83,7 +112,7 @@ namespace OOP_example
 
         public static string GetFirstNonRepeatedChar2(string str)
         {
-            var dictionary = new Dictionary<char,int>();
+            var dictionary = new Dictionary<char, int>();
 
             foreach (char c in str)
             {
@@ -117,7 +146,7 @@ namespace OOP_example
 
             byte b = 23;
             int i = b;
-            byte b2 = (byte) i;
+            byte b2 = (byte)i;
             Console.WriteLine(i);
 
             int numVal = Int32.Parse("-105");

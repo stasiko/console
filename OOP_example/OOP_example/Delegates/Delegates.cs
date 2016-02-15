@@ -8,17 +8,20 @@ namespace OOP_example.Delegates
 {
     public delegate string FirstDelegate(int x);
 
+
+
     public class Sample
     {
-        //public string Invoke(int x);
+
         //public System.IAsyncResult BeginInvoke(int x, System.AsyncCallback callback, object state);
         //public string EndInvoke(IAsyncResult result);
+
+
 
         public delegate void SecondDelegate(char a, char b);
 
 
-
-        public static void TestDelegates()
+        public void TestDelegates()
         {
             /* Два выражения создания экземпляров делегатов d1 и d2 эквивалентны. Здесь InstanceMethod является экземплярным методом, который объявлен в классе, в котором также объявлены нижеприведённые выражения (базовый класс). Соответственно, ссылка на экземпляр объекта — this, и именно поэтому эти выражения эквивалентны. */
             //FirstDelegate d1 = new FirstDelegate(InstanceMethod);
@@ -41,17 +44,22 @@ namespace OOP_example.Delegates
     public class DelegateTest
     {
         string name;
+        /*
+        Пример программы содержащей один статический и один экземплярный методы.
+        Вызов DelegateTest.StaticMethod эквивалентен вызову StaticMethod
+    */
 
-        static void Test()
+
+        public static void Test()
         {
-            FirstDelegate d1 = new FirstDelegate(StaticMethod);
+            FirstDelegate d1 = new FirstDelegate(DelegateTest.StaticMethod);
 
             DelegateTest instance = new DelegateTest();
             instance.name = "My instance";
             FirstDelegate d2 = new FirstDelegate(instance.InstanceMethod);
 
-            Console.WriteLine(d1(10));// shows Static method 10
-            Console.WriteLine(d2(5));// shows My instance: 5
+            Console.WriteLine($"Delegate 1 {d1(10)} with target: {d1.Target}");// shows Static method 10
+            Console.WriteLine($"Delegate 2 {d2(5)} with target: {d2.Target}");// shows My instance: 5
         }
 
         static string StaticMethod(int i)
