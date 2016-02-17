@@ -15,6 +15,8 @@ namespace OOP_example.Delegates
         public event MethodContainer OnCount = () => { }; //Создание анонимной функции на основе лямбда выражения.
 
 
+
+
         //public event MethodContainer OnCount = delegate{};
         //public event Action OnCount = delegate{};
         //public event EventHandler MyEvent = delegate { };
@@ -22,13 +24,57 @@ namespace OOP_example.Delegates
 
         public void Count()
         {
+
+            var test = OnCount.GetInvocationList();
+
+            Handler_Two handlerThree = new Handler_Two();
+
+
+            OnCount += handlerThree.Message;
+
+            //4
+            var count1 = OnCount;
+            //count1();
+
+
+            //var test2 = OnCount.    .GetInvocationList();
+
+            OnCount -= handlerThree.Message;
+
+            //var count2 = (MethodContainer)OnCount;
+
+            //var count3 = OnCount;
+
+            var count2 = OnCount;
+
+            //OnCount += handlerThree.Message;
+
+            //OnCount.GetInvocationList();
+            //count3.GetInvocationList();
+            //count2.GetInvocationList();
+
+
+
             for (int i = 0; i < 100; i++)
             {
                 if (i == 71)
                 {
-                    OnCount?.Invoke();
+                    OnCount.Invoke();
                 }
             }
+
+
+            Action a = () => Console.WriteLine("event 1");
+            var b = a;
+            a += () => Console.WriteLine("event 2");
+
+            Console.WriteLine("EVENT a:");
+            Console.WriteLine("---------------");
+            a();
+            Console.WriteLine();
+            Console.WriteLine("EVENT b:");
+            Console.WriteLine("---------------");
+            b();
         }
     }
 

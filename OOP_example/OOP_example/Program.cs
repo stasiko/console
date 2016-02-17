@@ -1,10 +1,10 @@
 ﻿using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.InterceptionExtension;
 using OOP_example.Delegates;
 using OOP_example.Test;
+using OOP_example.Unity;
 
 namespace OOP_example
 {
@@ -39,7 +39,11 @@ namespace OOP_example
 
             var testObj = new { Id = 1, Name = "1" };
 
+            EventExpample(new string[0]);
+
             //publisher.SampleEvent += new Publisher.SampleEventHandler(testObj, new SampleEventArgs("Goziraga"));
+
+            UnityTest();
 
 #if DEBUG
             Console.WriteLine("Press enter to close...");
@@ -47,6 +51,43 @@ namespace OOP_example
 #endif
 
         }
+
+        public static void DependencyInjectionTest(string[] args)
+        {
+
+            // standart case
+            //A a = new A();
+            //a.DoSomeStuff();
+
+            //Instead of used above, use code below
+
+            B b = new B(); // B is constructed here instead
+            A a = new A(b);
+            a.DoSomeStuff();
+
+        }
+
+
+        public static void UnityTest()
+        {
+            // basic usage
+            //ILogger logger = new Logger();
+            //logger.Write("Slava Gozirage");
+            //Console.ReadKey();
+
+
+            IUnityContainer container = new UnityContainer();
+            container.RegisterType<ILogger, Logger>(new ContainerControlledLifetimeManager());
+            container.AddNewExtension<Interception>();
+            container.Configure<Interception>().SetInterceptorFor<ILogger>(new TransparentProxyInterceptor());
+
+
+            var logger = container.Resolve<ILogger>();
+            logger.Write("Slava Gozirage");
+            Console.ReadKey();
+
+        }
+
 
 
         public static void EventExpample(string[] args)
@@ -58,9 +99,34 @@ namespace OOP_example
             counter.OnCount += handlerOne.Message;
             counter.OnCount += handlerTwo.Message;
 
+
+
             counter.Count();
 
         }
+
+        //public static void TestEvents()
+        //{
+
+
+
+        //    ReturnIntDelegate del1 = Method1; // Returns 12
+        //    del1 += Method2;  // Returns 99
+
+        //    // Invoke all at once, get return value
+        //    // only from last
+        //    Console.WriteLine("Invoke normally");
+        //    int val = del1();
+        //    Console.WriteLine(val);
+
+        //    // Invoke one at a time
+        //    Console.WriteLine("Invoke one at a time");
+        //    foreach (ReturnIntDelegate del in del1.GetInvocationList())
+        //    {
+        //        int ret = del.Invoke();
+        //        Console.WriteLine(ret);
+        //    }
+        //}
 
 
         public static void CallOfKtulhu(string message)

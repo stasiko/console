@@ -22,10 +22,14 @@ namespace OOP_example.Delegates
 
         public virtual void RaiseSampleEvent()
         {
-            if (SampleEvent != null)
-            {
-                SampleEvent(this, new SampleEventArgs("Goziraga"));
-            }
+            //if (SampleEvent != null)
+            //{
+            //    SampleEvent(this, new SampleEventArgs("Goziraga"));
+            //}
+
+            SampleEvent?.Invoke(this, new SampleEventArgs("Goziraga"));
+
+           // SampleEvent?.BeginInvoke(this, new SampleEventArgs("fdsf"),)
         }
     }
 
