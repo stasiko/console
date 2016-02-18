@@ -1,7 +1,9 @@
-﻿using System;
+﻿#define SpecialVersion
+using System;
 using System.Collections.Generic;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.InterceptionExtension;
+using OOP_example.Core;
 using OOP_example.Delegates;
 using OOP_example.Test;
 using OOP_example.Unity;
@@ -45,6 +47,14 @@ namespace OOP_example
 
             UnityTest();
 
+            ArrayTest();
+
+            var partlyCompiled = new CompilationTrace92();
+
+            partlyCompiled.ConditionalCompilation();
+
+            DependencyInjectionTest();
+
 #if DEBUG
             Console.WriteLine("Press enter to close...");
             Console.ReadLine();
@@ -52,7 +62,19 @@ namespace OOP_example
 
         }
 
-        public static void DependencyInjectionTest(string[] args)
+        private static void ArrayTest()
+        {
+            //https://msdn.microsoft.com/ru-ru/library/7eddebat.aspx
+            //if (index != -1)
+            Array array = Array.CreateInstance(typeof(int), new int[] { 3 }, new int[] { -1 });
+            int index = Array.IndexOf(array, 42);
+            if (index != (array.GetLowerBound(0) - 1))
+            {
+                // do something
+            }
+        }
+
+        public static void DependencyInjectionTest()
         {
 
             // standart case
@@ -64,6 +86,7 @@ namespace OOP_example
             B b = new B(); // B is constructed here instead
             A a = new A(b);
             a.DoSomeStuff();
+
 
         }
 
@@ -128,18 +151,19 @@ namespace OOP_example
         //    }
         //}
 
-
         public static void CallOfKtulhu(string message)
         {
             var test = new AbstractRealisation();
-            test.MyClass("Call");
-            test.MyAbstractClass("Call");
-            test.MyVirtualClass();
+            test.StandartClass("Call");
+            test.AbstractClass("Call");
+            test.VirtualClass();
 
+
+            // приводи к объекту родителю.
             var test2 = (AbstractTest)test;
-            test2.MyClass("Call");
-            test2.MyAbstractClass("Call");
-            test2.MyVirtualClass();
+            test2.StandartClass("Call");
+            test2.AbstractClass("Call");
+            test2.VirtualClass();
 
 
 

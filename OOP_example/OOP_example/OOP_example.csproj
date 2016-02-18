@@ -72,6 +72,9 @@
     <Compile Include="AbstractFactory\GUIFactoryGeneric.cs" />
     <Compile Include="AbstractFactory\Interfaces.cs" />
     <Compile Include="AbstractFactory\UserInput.cs" />
+    <Compile Include="Attributes\IntArrayInitializer.cs" />
+    <Compile Include="Attributes\MyAttribute.cs" />
+    <Compile Include="Core\CompilationTrace92.cs" />
     <Compile Include="Delegates\ClassCounter.cs" />
     <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="Delegates\Events.cs" />
@@ -99,7 +102,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\" />
     <Folder Include="SOLID\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
