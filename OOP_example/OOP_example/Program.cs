@@ -55,12 +55,31 @@ namespace OOP_example
 
             DependencyInjectionTest();
 
+            CovarianceTest();
+
 #if DEBUG
             Console.WriteLine("Press enter to close...");
             Console.ReadLine();
 #endif
 
         }
+
+        private static void CovarianceTest()
+        {
+
+            Console.WriteLine("Press enter to close...");
+
+            // это обычно т.к. Magic реализует интерфейс IMagic<Fruit, Orange>
+            IMagic<Fruit, Orange> i1 = new Magic();
+
+            // используется и ковариантность и контравариантность т.к. записываем
+            // IMagic<Fruit, Orange> в IMagic<Orange, Fruit>
+            IMagic<Orange, Fruit> i2 = new Magic();
+
+            Console.WriteLine($"variable 1  {i1}");
+            Console.WriteLine($"variable 2  {i2}");
+        }
+
 
         private static void ArrayTest()
         {

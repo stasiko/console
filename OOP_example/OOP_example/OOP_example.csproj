@@ -83,8 +83,11 @@
     <Compile Include="Prototype\DynamiFabric.cs" />
     <Compile Include="Prototype\PrototypeFabric.cs" />
     <Compile Include="Prototype\SchemeElement.cs" />
+    <Compile Include="TestExamples\StringValidationBrackets.cs" />
     <Compile Include="Test\AbstractTest.cs" />
     <Compile Include="Test\BoxingUnboxing.cs" />
+    <Compile Include="Test\Covariance.cs" />
+    <Compile Include="Test\Exceptions.cs" />
     <Compile Include="Test\IntefraceTest.cs" />
     <Compile Include="Test\NamedArguments.cs" />
     <Compile Include="Test\NetDataTypes.cs" />
