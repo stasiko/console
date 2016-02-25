@@ -95,6 +95,7 @@
     <Compile Include="Test\NullableExample.cs" />
     <Compile Include="Test\Nullables.cs" />
     <Compile Include="Test\Polymorph.cs" />
+    <Compile Include="Test\Structures.cs" />
     <Compile Include="Unity\BootstrappersMvc.cs" />
     <Compile Include="Unity\DependencyInjection.cs" />
     <Compile Include="Unity\ILogger.cs" />

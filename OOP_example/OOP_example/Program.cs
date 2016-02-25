@@ -58,8 +58,31 @@ namespace OOP_example
             CovarianceTest();
 
 
+            int? m = null;
+
+            Console.WriteLine(m.GetValueOrDefault());
+            StructureTest structureTest3;
+            structureTest3.A = 1;
+            structureTest3.Field = "test";
+            StructureTest? structureTest = new StructureTest();
+            var structTest2 = (Foo)structureTest3;
+
+            structureTest = null;
+            Console.WriteLine($"Structure test  {structureTest.GetValueOrDefault().A.ToString()} {structureTest.GetValueOrDefault().Field }");
+
+
+            Point p = new Point(1, 1);
+            Console.WriteLine(p);
+            p.Change(2, 2);
+            Console.WriteLine(p);
+            Object o = p;
+
+            Console.WriteLine(o);
+            ((Foo)o).Change(3, 3);
+            Console.WriteLine(o);
+
 #if DEBUG
-        Console.WriteLine("Press enter to close...");
+            Console.WriteLine("Press enter to close...");
             Console.ReadLine();
 #endif
 
@@ -311,6 +334,14 @@ namespace OOP_example
                 return new Digit(d);
             }
         }
+
+        //public static string toFormat(string s, int u)
+        //{
+        //    //return "".Substring(0, u * 4) + s + "\r\n";
+        //    //return $"{u*4}{s}{"\r\n"}";
+
+
+        //}
 
     }
 }
