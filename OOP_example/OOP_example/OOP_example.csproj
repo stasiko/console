@@ -88,6 +88,7 @@
     <Compile Include="Test\BoxingUnboxing.cs" />
     <Compile Include="Test\Covariance.cs" />
     <Compile Include="Test\Exceptions.cs" />
+    <Compile Include="Test\Extensions.cs" />
     <Compile Include="Test\IntefraceTest.cs" />
     <Compile Include="Test\NamedArguments.cs" />
     <Compile Include="Test\NetDataTypes.cs" />

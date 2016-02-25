@@ -57,8 +57,9 @@ namespace OOP_example
 
             CovarianceTest();
 
+
 #if DEBUG
-            Console.WriteLine("Press enter to close...");
+        Console.WriteLine("Press enter to close...");
             Console.ReadLine();
 #endif
 
