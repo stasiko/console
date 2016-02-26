@@ -78,12 +78,14 @@
     <Compile Include="Delegates\ClassCounter.cs" />
     <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="Delegates\Events.cs" />
+    <Compile Include="InterviewTasks\BasicPrograms.cs" />
+    <Compile Include="InterviewTasks\TasksEntryPoint.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Prototype\DynamiFabric.cs" />
     <Compile Include="Prototype\PrototypeFabric.cs" />
     <Compile Include="Prototype\SchemeElement.cs" />
-    <Compile Include="TestExamples\StringValidationBrackets.cs" />
+    <Compile Include="InterviewTasks\StringValidationBrackets.cs" />
     <Compile Include="Test\AbstractTest.cs" />
     <Compile Include="Test\BoxingUnboxing.cs" />
     <Compile Include="Test\Covariance.cs" />

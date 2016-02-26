@@ -6,8 +6,33 @@ using System.Threading.Tasks;
 
 namespace OOP_example.Test
 {
-    class Structures
+    public static class StructuresTest
     {
+        public static void ExecuteStructureTest()
+        {
+            int? m = null;
+
+            Console.WriteLine(m.GetValueOrDefault());
+            StructureTest structureTest3;
+            structureTest3.A = 1;
+            structureTest3.Field = "test";
+            StructureTest? structureTest = new StructureTest();
+            var structTest2 = (Foo)structureTest3;
+
+            structureTest = null;
+            Console.WriteLine($"Structure test  {structureTest.GetValueOrDefault().A.ToString()} {structureTest.GetValueOrDefault().Field }");
+
+
+            Point p = new Point(1, 1);
+            Console.WriteLine(p);
+            p.Change(2, 2);
+            Console.WriteLine(p);
+            Object o = p;
+
+            Console.WriteLine(o);
+            ((Foo)o).Change(3, 3);
+            Console.WriteLine(o);
+        }
     }
 
     public struct StructureTest : Foo

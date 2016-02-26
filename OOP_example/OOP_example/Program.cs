@@ -5,6 +5,7 @@ using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.InterceptionExtension;
 using OOP_example.Core;
 using OOP_example.Delegates;
+using OOP_example.InterviewTasks;
 using OOP_example.Test;
 using OOP_example.Unity;
 
@@ -16,14 +17,7 @@ namespace OOP_example
         {
             CallOfKtulhu("test string");
 
-            var firstChar = $"First non repeatable symbol from string {"ababbacbafb"} is { GetFirstNonRepeatedChar("ababbacbafb")}.";
 
-            var firstChar2 = $"222 First non repeatable symbol from string {"ababbacbafb"} is { GetFirstNonRepeatedChar2("ababbacbafb")}.";
-
-            Console.WriteLine(firstChar);
-            Console.WriteLine(firstChar2);
-
-            var result = "success";
 
 
             TypesConversion();
@@ -57,29 +51,9 @@ namespace OOP_example
 
             CovarianceTest();
 
+            StructuresTest.ExecuteStructureTest();
 
-            int? m = null;
-
-            Console.WriteLine(m.GetValueOrDefault());
-            StructureTest structureTest3;
-            structureTest3.A = 1;
-            structureTest3.Field = "test";
-            StructureTest? structureTest = new StructureTest();
-            var structTest2 = (Foo)structureTest3;
-
-            structureTest = null;
-            Console.WriteLine($"Structure test  {structureTest.GetValueOrDefault().A.ToString()} {structureTest.GetValueOrDefault().Field }");
-
-
-            Point p = new Point(1, 1);
-            Console.WriteLine(p);
-            p.Change(2, 2);
-            Console.WriteLine(p);
-            Object o = p;
-
-            Console.WriteLine(o);
-            ((Foo)o).Change(3, 3);
-            Console.WriteLine(o);
+            TasksEntryPoint.ExecuteTasks();
 
 #if DEBUG
             Console.WriteLine("Press enter to close...");
@@ -228,48 +202,7 @@ namespace OOP_example
 
 
 
-        //На входе есть строка, "ababbacbafb"
-
-        //    на выходе нужно получить первое не повторяющийся символ
-
-        public static string GetFirstNonRepeatedChar(string str)
-        {
-            foreach (char c in str)
-            {
-
-                if ((str.LastIndexOf(c) - str.IndexOf(c)) == 0)
-                    return c.ToString();
-            }
-            return "none";
-        }
-
-        public static string GetFirstNonRepeatedChar2(string str)
-        {
-            var dictionary = new Dictionary<char, int>();
-
-            foreach (char c in str)
-            {
-                if (dictionary.ContainsKey(c))
-                {
-                    dictionary[c] = dictionary[c] + 1;
-                }
-                else
-                {
-                    dictionary.Add(c, 1);
-                }
-            }
-
-
-            foreach (var d in dictionary)
-            {
-                if (d.Value == 1)
-                {
-                    return d.Key.ToString();
-                }
-            }
-
-            return "none";
-        }
+        
 
 
         public static void TypesConversion()
@@ -342,6 +275,5 @@ namespace OOP_example
 
 
         //}
-
     }
 }

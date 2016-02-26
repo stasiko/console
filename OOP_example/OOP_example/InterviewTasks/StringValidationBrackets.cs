@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP_example.TestExamples
+namespace OOP_example.InterviewTasks
 {
     class StringValidationBrackets
     {
