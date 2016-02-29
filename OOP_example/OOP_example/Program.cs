@@ -55,21 +55,100 @@ namespace OOP_example
 
             TasksEntryPoint.ExecuteTasks();
 
+            var testingCustomNumerator = new ForEachTest();
+
+            foreach (var item in testingCustomNumerator)
+            {
+                Console.WriteLine("Custom numerator test.");
+            }
+
+
+            TypeA a = new TypeA();
+            //TypeB b = new TypeB.T();
+            TypeA.TypeB b = new TypeA.TypeB();
+            a.MethodA();
+            b.MethodA();
+            Console.ReadLine();
+
+            //int a = 10;
+            //int b = 20;
+            //byte c = a + b;
+            //Console.WriteLine(c);
+
+            string[] ar = new[] {"1", "2"};
+
+            List<string> lst = new List<string>();
+
+            lst.AddRange(ar);
+
+            A aa = new B();
+
+
+            Object aaa = new B();
+            B bbb = aaa as B;
+
+            string[] data = new string[] { "1", "2", "3" };
+            Foo(data);
+            Foo("A", "B", "C");
+
+            //B b = new A();
+
+            //string s +=
+            //aaa;
+
+
+            //Object a = new A();
+            //Object b = (B)a;
+
+            int? i = null;
+            Console.WriteLine(i ?? Convert.ToInt32(i.HasValue));
+            Console.WriteLine(i);
+            Console.WriteLine();
+
+
 #if DEBUG
             Console.WriteLine("Press enter to close...");
             Console.ReadLine();
+
+#else
+
 #endif
 
         }
 
+        public static void Foo(params string[] lines)
+        {
+            foreach (string l in lines)
+            {
+                Console.Write(l);
+            }
+        }
+
+
+        class A { int x; }
+
+        class B : A { int y; }
+
+        class TypeA
+        {
+            public class TypeB : TypeA
+            {
+                public override void MethodA() { Console.WriteLine("TypeB"); }
+            }
+
+            public virtual void MethodA() { Console.WriteLine("TypeA"); }
+        }
+
+
         private static void CovarianceTest()
         {
+            #region
 
             Console.WriteLine("Press enter to close...");
 
             // это обычно т.к. Magic реализует интерфейс IMagic<Fruit, Orange>
             IMagic<Fruit, Orange> i1 = new Magic();
-
+#endregion
             // используется и ковариантность и контравариантность т.к. записываем
             // IMagic<Fruit, Orange> в IMagic<Orange, Fruit>
             IMagic<Orange, Fruit> i2 = new Magic();
@@ -101,8 +180,8 @@ namespace OOP_example
             //Instead of used above, use code below
 
             B b = new B(); // B is constructed here instead
-            A a = new A(b);
-            a.DoSomeStuff();
+            //A a = new A(b);
+            //a.DoSomeStuff();
 
 
         }
@@ -202,7 +281,7 @@ namespace OOP_example
 
 
 
-        
+
 
 
         public static void TypesConversion()

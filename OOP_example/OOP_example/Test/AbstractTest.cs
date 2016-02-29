@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace OOP_example.Test
 {
 
-    abstract class AbstractTest
+    abstract class AbstractTest : IFooForAbstract
     {
         public void StandartClass(string message)
         {
@@ -20,12 +20,19 @@ namespace OOP_example.Test
         {
             Console.WriteLine("Parent virtual class");
         }
+
+        public int Id { get; set; }
     }
 
-
+    public interface IFooForAbstract
+    {
+        int Id { get; set; }
+    }
 
     class AbstractRealisation : AbstractTest
     {
+
+        public double A { get; private set; }
 
         public override void AbstractClass(string message)
         {
