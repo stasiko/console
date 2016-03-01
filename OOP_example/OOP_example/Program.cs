@@ -13,11 +13,21 @@ namespace OOP_example
 {
     class Program
     {
+
+
+        public class asshole
+        {
+            static asshole() { Console.WriteLine("Foo");}
+
+            public asshole() {Console.WriteLine("Foo2"); }
+        }
+
+
         static void Main(string[] args)
         {
             CallOfKtulhu("test string");
 
-
+            int av = 1, ab = 2;
 
 
             TypesConversion();
@@ -57,10 +67,15 @@ namespace OOP_example
 
             var testingCustomNumerator = new ForEachTest();
 
+
             foreach (var item in testingCustomNumerator)
             {
                 Console.WriteLine("Custom numerator test.");
             }
+
+
+
+            OopKnowledgeTest.MainTest();
 
 
             TypeA a = new TypeA();
@@ -105,6 +120,13 @@ namespace OOP_example
             Console.WriteLine(i);
             Console.WriteLine();
 
+            char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+            for (int it = 0; it < vowels.Length; it++)
+            {
+                Console.Write(vowels[it] + " ");
+            }
+
+
 
 #if DEBUG
             Console.WriteLine("Press enter to close...");
@@ -124,6 +146,27 @@ namespace OOP_example
             }
         }
 
+
+        class Ast { }
+
+        class Bst : Ast
+        {
+
+            private int a;
+
+            private int c;
+
+            public int B { get { return 0; } }
+
+            public int C { set { c = value; } }
+
+
+            protected int D { get; set; }
+            protected  int E { get; private set; }
+            //protected int F { public get; set; }
+
+
+        }
 
         class A { int x; }
 

@@ -10,7 +10,7 @@ namespace OOP_example.InterviewTasks
     {
         //На входе есть строка, "ababbacbafb"
         //на выходе нужно получить первое не повторяющийся символ
-        // Привести возможные примеры, используя и не использую LINQ
+        //Привести возможные примеры, используя и не использую LINQ
 
 
         public static string GetFirstNonRepeatedChar(string str)

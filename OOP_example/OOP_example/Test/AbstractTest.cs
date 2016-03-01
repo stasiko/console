@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 namespace OOP_example.Test
 {
 
-    abstract class AbstractTest : IFooForAbstract
+    public class Ass { }
+
+    abstract class AbstractTest : Ass, IFooForAbstract
     {
         public void StandartClass(string message)
         {
