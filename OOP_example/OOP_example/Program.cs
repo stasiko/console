@@ -126,7 +126,8 @@ namespace OOP_example
                 Console.Write(vowels[it] + " ");
             }
 
-
+            ApplicationDomains.DomainTest();
+            ThreadingExample.ThreadingTest();
 
 #if DEBUG
             Console.WriteLine("Press enter to close...");
