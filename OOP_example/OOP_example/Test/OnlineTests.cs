@@ -136,6 +136,7 @@ namespace OOP_example.Test
     {
         private int i = initB();
 
+
         public static int initB()
         {
             return 8;
@@ -154,5 +155,37 @@ namespace OOP_example.Test
             a.print();
         }
     }
+
+
+    public class AA
+    {
+        static AA() { Console.WriteLine("Static AA"); }
+
+        public AA()
+        {
+            Console.WriteLine("Public AA");
+        }
+    }
+
+    public class BB : AA
+    {
+        static BB()
+        {
+            Console.WriteLine("static BB");
+        }
+
+        public BB()
+        {
+            Console.WriteLine("public BB");
+        }
+    }
+
+    public static class TestAABB
+{
+        public static void TestAB()
+        {
+            AA b = new BB();
+        }
+}
 
 }

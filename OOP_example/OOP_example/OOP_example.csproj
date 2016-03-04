@@ -89,6 +89,7 @@
     <Compile Include="InterviewTasks\StringValidationBrackets.cs" />
     <Compile Include="Test\AbstractTest.cs" />
     <Compile Include="Test\ApplicationDomains.cs" />
+    <Compile Include="Test\Asyncs.cs" />
     <Compile Include="Test\BoxingUnboxing.cs" />
     <Compile Include="Test\Covariance.cs" />
     <Compile Include="Test\Exceptions.cs" />

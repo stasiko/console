@@ -135,6 +135,8 @@ namespace OOP_example
             TestStructToInterface.TestStructureToInterface();
             OnlineTests.TestYield();
             TestInits.TestInit();
+            TestAABB.TestAB();
+            Asyncs.TestAsync();
 
 #if DEBUG
             Console.WriteLine("Press enter to close...");
