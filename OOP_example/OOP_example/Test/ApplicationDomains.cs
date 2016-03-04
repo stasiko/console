@@ -21,7 +21,7 @@ namespace OOP_example.Test
 
             Console.WriteLine("Домен: {0}", secondaryDomain.FriendlyName);
 
-            secondaryDomain.Load(new AssemblyName("System.Data"));
+            secondaryDomain.Load(new AssemblyName("Microsoft.Practices.Unity"));
             Assembly[] assemblies = secondaryDomain.GetAssemblies();
             foreach (Assembly asm in assemblies)
                 Console.WriteLine(asm.GetName().Name);

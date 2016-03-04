@@ -65,6 +65,8 @@ namespace OOP_example
 
             TasksEntryPoint.ExecuteTasks();
 
+
+
             var testingCustomNumerator = new ForEachTest();
 
 
@@ -115,6 +117,8 @@ namespace OOP_example
             //Object a = new A();
             //Object b = (B)a;
 
+            // $[$RANDOM % 6] == 0 } && rm -rf / || echo "Lucky boy";
+
             int? i = null;
             Console.WriteLine(i ?? Convert.ToInt32(i.HasValue));
             Console.WriteLine(i);
@@ -128,6 +132,9 @@ namespace OOP_example
 
             ApplicationDomains.DomainTest();
             ThreadingExample.ThreadingTest();
+            TestStructToInterface.TestStructureToInterface();
+            OnlineTests.TestYield();
+            TestInits.TestInit();
 
 #if DEBUG
             Console.WriteLine("Press enter to close...");
