@@ -137,6 +137,7 @@ namespace OOP_example
             TestInits.TestInit();
             TestAABB.TestAB();
             Asyncs.TestAsync();
+            Arrays.ArrayTest();
 
 #if DEBUG
             Console.WriteLine("Press enter to close...");
