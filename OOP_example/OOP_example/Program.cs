@@ -138,6 +138,7 @@ namespace OOP_example
             TestAABB.TestAB();
             Asyncs.TestAsync();
             Arrays.ArrayTest();
+            Iterators.IteratorTest();
 
 #if DEBUG
             Console.WriteLine("Press enter to close...");

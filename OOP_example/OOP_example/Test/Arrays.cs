@@ -10,6 +10,7 @@ namespace OOP_example.Test
     {
         public static void ArrayTest()
         {
+
             object[] arr = new object[] { "string", 0, new Guid() };
             foreach (object var in arr)
             {
