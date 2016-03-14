@@ -13,6 +13,7 @@ namespace OOP_example
 {
     class Program
     {
+        delegate void P();
 
 
         public class asshole
@@ -139,6 +140,15 @@ namespace OOP_example
             Asyncs.TestAsync();
             Arrays.ArrayTest();
             Iterators.IteratorTest();
+
+
+
+            P p = Console.WriteLine; // P объявлен как delegate void P();
+            foreach (var ii in new[] { 1, 2, 3, 4 })
+            {
+                p += () => Console.Write(ii + "lambdas");
+            }
+            p();
 
 #if DEBUG
             Console.WriteLine("Press enter to close...");
