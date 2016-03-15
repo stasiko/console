@@ -97,6 +97,7 @@
     <Compile Include="Test\Extensions.cs" />
     <Compile Include="Test\IntefraceTest.cs" />
     <Compile Include="Test\Iterators.cs" />
+    <Compile Include="Test\Lambdas.cs" />
     <Compile Include="Test\NamedArguments.cs" />
     <Compile Include="Test\NetDataTypes.cs" />
     <Compile Include="Test\NullableExample.cs" />

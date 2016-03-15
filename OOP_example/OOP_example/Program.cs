@@ -140,6 +140,7 @@ namespace OOP_example
             Asyncs.TestAsync();
             Arrays.ArrayTest();
             Iterators.IteratorTest();
+            Lambdas.LambdaTest();
 
 
 
