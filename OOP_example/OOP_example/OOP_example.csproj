@@ -104,6 +104,7 @@
     <Compile Include="Test\Nullables.cs" />
     <Compile Include="Test\OnlineTests.cs" />
     <Compile Include="Test\Polymorph.cs" />
+    <Compile Include="Test\Singleton.cs" />
     <Compile Include="Test\Structures.cs" />
     <Compile Include="Test\ForEachTest.cs" />
     <Compile Include="Test\ThreadingExample.cs" />
