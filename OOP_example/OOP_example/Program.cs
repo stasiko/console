@@ -142,7 +142,7 @@ namespace OOP_example
             Iterators.IteratorTest();
             Lambdas.LambdaTest();
 
-
+            Singleton single = Singleton.Instance;
 
             P p = Console.WriteLine; // P объявлен как delegate void P();
             foreach (var ii in new[] { 1, 2, 3, 4 })
@@ -150,6 +150,9 @@ namespace OOP_example
                 p += () => Console.Write(ii + "lambdas");
             }
             p();
+
+            Int32? iner = null;
+            iner.
 
 #if DEBUG
             Console.WriteLine("Press enter to close...");

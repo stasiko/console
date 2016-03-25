@@ -8,9 +8,9 @@ namespace OOP_example.Test
 {
     public sealed class Singleton
     {
-        private static volatile Singleton instance;
+        private static volatile Singleton _instance;
 
-        private static object syncRoot = new Object();
+        //private static object syncRoot = new Object();
 
         private Singleton() { }
 
@@ -18,18 +18,17 @@ namespace OOP_example.Test
         {
             get
             {
-                if (instance == null)
+                if (_instance != null) return _instance;
+                //lock (syncRoot)
+                lock (typeof(Singleton))
                 {
-                    lock (syncRoot)
-                    {
-                        if (instance == null )
-                        {
-                            instance = new Singleton();
-                        }
-                    }
+                    //if (_instance == null )
+                    //{
+                        _instance = new Singleton();
+                    //}
                 }
 
-                return instance;
+                return _instance;
             }
         }
     }
