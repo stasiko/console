@@ -12,6 +12,12 @@
 
 datepart(month,ARR_DATE)
 
+-- как найти дубли записей в таблице
+SELECT col1, col2, col3, col4
+FROM table
+GROUP BY col1, col2, col3, col4
+HAVING COUNT(*) > 1
+
 
 --Как сделать сумму по нарастающей?
     SELECT date, SUM(out) out, 
@@ -19,8 +25,7 @@ datepart(month,ARR_DATE)
        FROM Outcome_o 
        WHERE date <= o.date) run_tot 
     FROM Outcome_o o
-    GROUP BY datepart(month,ARR_DATE)
-    ORDER BY datepart(month,ARR_DATE);
+    GROUP BY datepart(month,ARR_DATE);
 	
 --Теперь посчитаем нарастающий итог. То есть для каждого товара и даты посчитаем сумму продаж с начальной даты в заданной партиции до текущей даты. --Это опять-таки можно сделать, используя один запрос, без всяких джойнов. Используется расширение предложения over в агрегирующей функции:
 select dtDate, iGoodId, sum ( mSells ) 
