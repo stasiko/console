@@ -29,6 +29,9 @@ namespace OOP_example
 
             int av = 1, ab = 2;
 
+            av &= ab;
+            Console.WriteLine("----- Logical ------");
+            Console.WriteLine(av);
 
             TypesConversion();
 
