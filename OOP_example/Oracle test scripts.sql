@@ -10,6 +10,40 @@
 --select * from T1,T2 что будет в результате ?
 --Как найти неуникальные значения в одном столбце? Решает. group by having... а в двух ?
 
+datepart(month,ARR_DATE)
+
+-- как найти дубли записей в таблице
+SELECT col1, col2, col3, col4
+FROM table
+GROUP BY col1, col2, col3, col4
+HAVING COUNT(*) > 1
+
+
+--Как сделать сумму по нарастающей?
+    SELECT date, SUM(out) out, 
+      (SELECT SUM(out) 
+       FROM Outcome_o 
+       WHERE date <= o.date) run_tot 
+    FROM Outcome_o o
+    GROUP BY datepart(month,ARR_DATE);
+	
+--Теперь посчитаем нарастающий итог. То есть для каждого товара и даты посчитаем сумму продаж с начальной даты в заданной партиции до текущей даты. --Это опять-таки можно сделать, используя один запрос, без всяких джойнов. Используется расширение предложения over в агрегирующей функции:
+select dtDate, iGoodId, sum ( mSells ) 
+over 
+( partition by iGoodId order by iGoodId asc, dtDate asc rows between unbounded preceding and current row )
+from #goods
+	
+
+--как найти 
+UPDATE sales
+SET    status = 'ACTIVE'
+WHERE  (saleprice, saledate) IN (
+    SELECT saleprice, saledate
+    FROM   sales
+    GROUP  BY saleprice, saledate
+    HAVING count(*) = 1 
+    );
+
 
 --Лучший покупатель за все время (тот Customer, у которого суммарно больше всего поле Sum)
 SELECT NAME, SM FROM
@@ -34,6 +68,17 @@ SELECT NAME, SM FROM
   GROUP BY dc.NAME,EXTRACT(MONTH FROM fcs.DATE))
   ) WHERE SM = maxSM;
 
+---Как вывести все числа, встречающиеся в колонке A более двух раз?  
+  select a from t 
+where a>0
+group by a
+having count(a)>1
+  
+  
+
+
+  
+  
  select country, count(*) as members, EXTRACT(MONTH FROM joined) as mn, EXTRACT(YEAR FROM JOINED) as yr,MIN(JOINED) as dt
 from table
 group by country, EXTRACT(MONTH FROM joined), EXTRACT(YEAR FROM JOINED)

@@ -1,0 +1,56 @@
+﻿var arr = ["Яблоко", "Апельсин", "Груша"];
+
+arr.forEach(function(item, i, arr) {
+  alert( i + ": " + item + " (массив:" + arr + ")" );
+});
+
+var arr = [1, -1, 2, -2, 3];
+
+var positiveArr = arr.filter(function(number) {
+  return number > 0;
+});
+
+alert( positiveArr ); // 1,2,3
+
+var arr = [1, 2, 3, 4, 5]
+
+// для каждого элемента массива запустить функцию,
+// промежуточный результат передавать первым аргументом далее
+var result = arr.reduce(function(sum, current) {
+  return sum + current;
+}, 0);
+
+alert( result ); // 15
+
+
+// Javascript chaining example
+var obj = {
+    first: function() { alert('first'); return obj; },
+    second: function() { alert('second'); return obj; },
+    third: function() { alert('third'); return obj; }
+}
+
+obj.first().second().third();
+
+
+// chaining
+ <script type="text/javascript">
+            (function($){
+                $.my = function(){alert('good')} //Если же создать метод объекту, тогда можно делать вызовы:
+                $.fn.my = function(){alert('good')} //Если объявить метод прототипу, тогда мы можем создавать конструкции на подобии:
+            })(jQuery)
+        </script>
+			
+
+$(selector).my()
+$.my()
+
+
+// end function
+$( "ul.first" )
+  .find( ".foo" )
+    .css( "background-color", "red" )
+  .end()
+  .find( ".bar" )
+    .css( "background-color", "green" )
+  .end();
